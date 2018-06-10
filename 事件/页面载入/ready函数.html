@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ready函数</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>当DOM载入就绪可以查询及操纵时绑定一个要执行的函数。</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    $(function () {
+        // 需求:在DOM加载完成时运行的代码
+        // 结果:控制台输出
+        console.info("DOM加载完成");
+    });
+    */
+    $(document).ready(function(){
+        // 需求:在DOM加载完成时运行的代码
+        // 结果:控制台输出
+        // document是javascript中的DOM对象
+        // ready是JQuery中的方法
+        // 为了能够调用JQuery中定义的方法,可以将DOM对象转化成JQuery对象
+        // 将DOM对象转化成JQuery对象的方法:$(DOM对象)===>JQuery对象
+        // 使用JQuery对象可以调用JQuery框架中提供的方法
+        console.info("DOM加载完成");
+    });
+</script>

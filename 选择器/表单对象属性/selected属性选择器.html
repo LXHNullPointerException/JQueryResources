@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selected属性选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":selected")</font></h3></center>
+<center><h3>匹配所有选中的option元素</h3></center>
+<select>
+    <option value="1">Flowers</option>
+    <option value="2" selected="selected">Gardens</option>
+    <option value="3">Trees</option>
+</select>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有选中的选项元素
+        // 结果:[ <option value="2" selected="selected">Gardens</option> ]
+        var $selectedOption = $("option:selected");
+        console.log($selectedOption);
+    });
+</script>

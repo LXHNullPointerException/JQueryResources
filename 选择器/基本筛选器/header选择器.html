@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>header选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":header")</font></h3></center>
+<center><h3>匹配如 h1, h2, h3之类的标题元素</h3></center>
+<h1>Header 1</h1>
+<p>Contents 1</p>
+<h2>Header 2</h2>
+<p>Contents 2</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:给页面内所有标题加上背景色
+        // 结果:[ <h1 style="background:#EEE;">Header 1</h1>, <h2 style="background:#EEE;">Header 2</h2> ]
+        $(":header").css("background","yellow");
+    });
+</script>

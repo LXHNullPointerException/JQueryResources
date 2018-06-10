@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <center><h3>根据给定的css类名匹配元素。</h3></center>
+    <center><h3><font color="red">使用规则:$(".class")</font></h3></center>
+    <div class="notMe">div class="notMe"</div>
+    <div class="myClass">div class="myClass"</div>
+    <span class="myClass">span class="myClass"</span>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有类是 "myClass" 的元素.
+        // 结果:[ <div class="myClass">div class="myClass"</div>, <span class="myClass">span class="myClass"</span> ]
+        var $myClass = $(".myClass");
+        console.log($myClass);
+    });
+</script>

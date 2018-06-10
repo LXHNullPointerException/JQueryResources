@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prop</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:prop(name|properties|key,value|fn)</font></h3></center>
+<center><h3>获取在匹配的元素集合的第一个元素的属性值。</h3></center>
+<form>
+    <input type="checkbox" name="newsletter" checked="checked" value="Daily"/>
+    <input type="checkbox" name="newsletter" value="Weekly"/>
+    <input type="checkbox" name="newsletter" checked="checked" value="Monthly"/>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数name 描述:选中复选框为true，没选中为false
+        // 注意:如果匹配到的元素有多个,那么只能匹配到第一个元素
+        var isChecked = $("input[type='checkbox']").prop("checked");
+        console.info(isChecked);
+        // 结果:true
+
+        // 参数properties 描述:禁用页面上的所有复选框。
+        $("input[type='checkbox']").prop({"disabled": "true"});
+        $("input[type='checkbox']").prop({"disabled": "disabled"});
+        $("input[type='checkbox']").prop({"disabled": true});
+
+        // 参数key,value 描述:禁用和选中所有页面上的复选框。
+        // 禁用
+        $("input[type='checkbox']").prop("disabled", "true");
+        $("input[type='checkbox']").prop("disabled", true);
+        $("input[type='checkbox']").prop("disabled", "disabled");
+        // 选中
+        $("input[type='checkbox']").prop("checked","checked");
+        $("input[type='checkbox']").prop("checked","true");
+        $("input[type='checkbox']").prop("checked",true);
+
+        // 参数key,回调函数 描述:通过函数来设置所有页面上的复选框被选中。
+        $("input[type='checkbox']").prop("checked",function () {
+            return true;
+        });
+        $("input[type='checkbox']").prop("checked",function () {
+            return "true";
+        });
+        $("input[type='checkbox']").prop("checked",function () {
+            return "checked";
+        });
+    });
+</script>

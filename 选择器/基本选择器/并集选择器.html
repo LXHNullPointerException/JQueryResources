@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>并集选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("selector1,selector2,...,selectorN")</font></h3></center>
+<center><h3>将每一个选择器匹配到的元素合并后一起返回。你可以指定任意多个选择器，并将匹配到的元素合并到一个结果内。</h3></center>
+    <div>div</div>
+    <p class="myClass">p class="myClass"</p>
+    <span>span</span>
+    <p class="notMyClass">p class="notMyClass"</p></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:找到匹配任意一个类的元素。
+        // 结果:[ <div>div</div>, <p class="myClass"><p class="myClass"</p>, <span>span</span> ]
+        var $anyClass = $("div,p,spn,.myClass,.notMyClass");
+        console.log($anyClass);
+    });
+</script>

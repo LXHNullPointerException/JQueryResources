@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeProp</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: removeProp(name)</font></h3></center>
+<center><h3>用来删除由.prop()方法设置的属性集</h3></center>
+<p> </p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:设置一个段落数字属性，然后将其删除
+        // 结果:
+        var $p = $("p");
+        $p.prop("luggageCode","1234");
+        console.info($p);
+        $p.removeProp("luggageCode");
+        console.info($p);
+    });
+</script>

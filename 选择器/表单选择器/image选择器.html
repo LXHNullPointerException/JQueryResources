@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>image选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("image")</font></h3></center>
+<center><h3>匹配所有图像域</h3></center>
+<form>
+    <input type="text" />
+    <input type="checkbox" />
+    <input type="radio" />
+    <input type="image" />
+    <input type="file" />
+    <input type="submit" />
+    <input type="reset" />
+    <input type="password" />
+    <input type="button" />
+    <select><option/></select>
+    <textarea></textarea>
+    <button></button>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:匹配所有图像域
+        // 结果:[ <input type="image" /> ]
+        var $image = $(":image");
+        console.log($image);
+    });
+</script>

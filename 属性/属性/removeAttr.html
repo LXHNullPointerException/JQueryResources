@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeAttr</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:removeAttr(name)</font></h3></center>
+<center><h3>从每一个匹配的元素中删除一个属性</h3></center>
+<img src="test.jpg"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:将文档中图像的src属性删除
+        // 结果:
+       $("img").removeAttr("src");
+       console.info($("img"));
+    });
+</script>

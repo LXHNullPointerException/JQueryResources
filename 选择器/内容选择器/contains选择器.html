@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contains选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":contains(text)")</font></h3></center>
+<center><h3>匹配包含给定文本的元素</h3></center>
+<div>John Resig</div>
+<div>George Martin</div>
+<div>Malcom John Sinclair</div>
+<div>J. Ohn</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有包含 "John" 的 div 元素
+        // 结果:[ <div>John Resig</div>, <div>Malcom John Sinclair</div> ]
+        var $johnDiv = $("div:contains('John')");
+        console.log($johnDiv);
+    });
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checked属性选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":checked")</font></h3></center>
+<center><h3>匹配所有选中的被选中元素(复选框、单选框等，select中的option)，对于select元素来说，获取选中推荐使用 :selected</h3></center>
+<form>
+    <input type="checkbox" name="newsletter" checked="checked" value="Daily" />
+    <input type="checkbox" name="newsletter" value="Weekly" />
+    <input type="checkbox" name="newsletter" checked="checked" value="Monthly" />
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有选中的复选框元素
+        // 结果:[ <input type="checkbox" name="newsletter" checked="checked" value="Daily" />, <input type="checkbox" name="newsletter" checked="checked" value="Monthly" /> ]
+        var $checkedCheckbox = $("input:checked");
+        console.info($checkedCheckbox);
+    });
+</script>

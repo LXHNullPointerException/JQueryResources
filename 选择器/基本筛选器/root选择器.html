@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>root选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":root")</font></h3></center>
+<center><h3>选择该文档的根元素。在HTML中，文档的根元素，和$(":root")选择的元素一样， 永远是html元素。</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:设置<html>背景颜色为黄色
+        // 结果:修改当前页面的背景色为黄色
+        $(":root").css("background","yellow");
+    });
+</script>

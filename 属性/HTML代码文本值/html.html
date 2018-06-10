@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:html([val|fn])</font></h3></center>
+<center><h3>取得第一个匹配元素的html内容</h3></center>
+<center><h3> 如果选择器匹配多于一个的元素，那么只有第一个匹配元素的 HTML 内容会被获取。</h3></center>
+<p><font color="red">jquery</font></p>
+<p><font color="red">Java</font></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 无参数 描述::返回p元素的内容。
+        // 使用这种方式获取的是选择器匹配元素的内部的HTML代码
+        // 结果:<font color="red">jquery</font>
+        var html = $("p").html();
+        console.info(html);
+
+        // 参数val 描述:设置所有 p 元素的内容
+        // 实际上是对选择器匹配上的元素的内部HTML进行替换设置
+        // 结果:<strong>Jquery</strong>
+        $("p").html("<strong>Jquery</strong>");
+        console.log($("p").html());
+
+        // 回调函数描述:使用函数来设置所有匹配元素的内容。
+        // 这个回调函数的有一个默认的参数index:当前选中的元素在选择器匹配元素集合中的索引
+        $("p").html(function(i){
+            console.info("this="+this);
+            console.info("$(this)="+$(this))
+            return "这个"+$(this)+"元素的索引为:" + i;
+        });
+    });
+</script>

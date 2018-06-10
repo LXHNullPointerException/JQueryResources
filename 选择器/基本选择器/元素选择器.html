@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("element")</font></h3></center>
+<center><h3>根据给定的元素标签名匹配所有元素</h3></center>
+    <div>DIV1</div>
+    <div>DIV2</div>
+    <span>SPAN</span>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找一个 DIV 元素
+        // [ <div>DIV1</div>, <div>DIV2</div> ]
+        var $divArr = $("div");
+        console.log($divArr);
+        // 提出问题什么是Jquery对象?
+        // 什么是DOM对象?
+        // JQuery对象==>DOM对象?
+        // DOM对象==>JQuery对象?
+        for(var i = 0;i<$divArr.length;i++){
+            console.log($($divArr)[i]);
+        }
+    });
+</script>

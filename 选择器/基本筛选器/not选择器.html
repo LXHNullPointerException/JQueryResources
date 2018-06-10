@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>not选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":not(selector)")</font></h3></center>
+<center><h3>去除所有与给定选择器匹配的元素</h3></center>
+<input name="apple" />
+<input name="flower" checked="checked" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有未选中的 input 元素
+        // 结果:[ <input name="apple" /> ]
+        // 该选择器存在问题
+        var $notChecked = $("input:not(:checked)");
+        console.log($notChecked);
+    });
+</script>

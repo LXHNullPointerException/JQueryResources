@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>祖先后代选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("ancestor descendant")</font></h3></center>
+<center><h3></h3></center>
+<form>
+    <label>Name:</label>
+    <input name="name" />
+    <fieldset>
+        <label>Newsletter:</label>
+        <input name="newsletter" />
+    </fieldset>
+</form>
+<input name="none" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:找到表单中所有的 input 元素
+        // 结果:[ <input name="name" />, <input name="newsletter" /> ]
+        var $formInput = $("form input");
+        console.log($formInput);
+    });
+</script>

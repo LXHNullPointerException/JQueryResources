@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最后一个子元素选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":last-Child")</font></h3></center>
+<center><h3>匹配最后一个子元素</h3></center>
+<center><h3>:last 只匹配最后一个元素，而此选择符将为每个父元素匹配最后一个子元素</h3></center>
+<ul>
+    <li>John</li>
+    <li>Karl</li>
+    <li>Brandon</li>
+</ul>
+<ul>
+    <li>Glen</li>
+    <li>Tane</li>
+    <li>Ralph</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:在每个 ul 中查找最后一个 li
+        // 结果:
+        var $lastChildUl = $("ul > li:last-child");
+        console.log($lastChildUl);
+    });
+</script>

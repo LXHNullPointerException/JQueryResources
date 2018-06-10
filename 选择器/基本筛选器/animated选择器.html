@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animated选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":animated")</font></h3></center>
+<center><h3>匹配所有正在执行动画效果的元素</h3></center>
+<button id="run">Run</button><div></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当点击按钮的时候,只有对不在执行动画效果的元素执行一个动画特效
+        // 结果: 效果没有出来?????????????????
+        $("#run").click(function () {
+            $("div:not(:animated)").animate({ left: "+=20" }, 1000);
+        });
+    });
+</script>

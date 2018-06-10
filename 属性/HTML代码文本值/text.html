@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:text([val|fn])</font></h3></center>
+<center><h3>取得所有匹配元素的内容。</h3></center>
+<center><h3>结果是由所有匹配元素包含的文本内容组合起来的文本。</h3></center>
+<p><font color="red">jquery</font></p>
+<p><font color="red">Java</font></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 无参数 描述:返回p元素的文本内容。
+        // 结果:jqueryJava
+        var text = $("p").text();
+        console.info(text);
+
+        // 参数val 描述:设置所有 p 元素的文本内容
+        // 结果:Hello World!Hello World!
+        $("p").text("Hello World!");
+        console.info($("p").text());
+
+        // 回调函数 描述:使用函数来设置所有匹配元素的文本内容。
+        //
+        $("p").text(function (index) {
+            console.info("this="+this);
+            console.info("$(this)="+$(this));
+            return "这个p元素的索引为:" + index;
+        });
+    });
+</script>

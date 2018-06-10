@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个子元素选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":first-child")</font></h3></center>
+<center><h3>匹配所给选择器( :之前的选择器)的第一个子元素</h3></center>
+<center><h3>类似的:first匹配第一个元素，但是:first-child选择器可以匹配多个：即为每个父级元素匹配第一个子元素。</h3></center>
+<ul>
+    <li>John</li>
+    <li>Karl</li>
+    <li>Brandon</li>
+</ul>
+<ul>
+    <li>Glen</li>
+    <li>Tane</li>
+    <li>Ralph</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:在每个 ul 中查找第一个 li
+        // 结果:[ <li>John</li>, <li>Glen</li> ]
+        // var $firstChildLi = $("ul>li:first-child");
+        var $firstChildLi = $("ul li:first-child");
+        console.log($firstChildLi);
+    });
+</script>

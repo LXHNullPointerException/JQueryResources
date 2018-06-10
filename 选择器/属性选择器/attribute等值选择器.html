@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute等值选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("[attribute=value]")</font></h3></center>
+<center><h3>匹配给定的属性是某个特定值的元素</h3></center>
+<input type="checkbox" name="newsletter" value="Hot Fuzz" />
+<input type="checkbox" name="newsletter" value="Cold Fusion" />
+<input type="checkbox" name="accept" value="Evil Plans" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有 name 属性是 newsletter 的 input 元素
+        // 结果:[ <input type="checkbox" name="newsletter" value="Hot Fuzz" checked="true" />, <input type="checkbox" name="newsletter" value="Cold Fusion" checked="true" /> ]
+        var $input = $("input[name='newsletter']");
+
+        // 将复选框选中的效果方式一:
+        // $input.attr("checked","checked");
+
+        // 将复选框选中的效果方式二:
+        // $input.attr("checked","true");
+
+        // 将复选框选中的效果方式三:
+        $input.attr("checked",true);
+
+        console.log($input);
+    });
+</script>

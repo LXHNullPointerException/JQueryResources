@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>odd选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":odd")</font></h3></center>
+<center><h3></h3>匹配所有索引值为奇数的元素，从 0 开始计数</center>
+<table>
+    <tr><td>Header 1</td></tr>
+    <tr><td>Value 1</td></tr>
+    <tr><td>Value 2</td></tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找表格的2、4、6行（即索引值1、3、5...）
+        // 结果:[ <tr><td>Value 1</td></tr> ]
+        var $odd = $("tr:odd");
+        console.log($odd)
+    });
+</script>

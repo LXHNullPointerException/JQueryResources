@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hidden选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":hidden")</font></h3></center>
+<center><h3>匹配所有不可见元素，或者type为hidden的元素</h3></center>
+<table>
+    <tr style="display:none"><td>Value 1</td></tr>
+    <tr><td>Value 2</td></tr>
+</table>
+<form>
+    <input type="text" name="email" />
+    <input type="hidden" name="id" />
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找隐藏的 tr
+        // 结果:[ <tr style="display:none"><td>Value 1</td></tr> ]
+        var $hiddenTr = $("tr:hidden");
+        console.log($hiddenTr);
+        // 需求:匹配type为hidden的元素
+        // 结果:[ <input type="hidden" name="id" /> ]
+        var $hiddenInput = $("input:hidden");
+        console.log($hiddenInput);
+    });
+</script>

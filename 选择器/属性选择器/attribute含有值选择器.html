@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute含有值选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("[attribute*=value]")</font></h3></center>
+<center><h3>匹配给定的属性是以包含某些值的元素</h3></center>
+<input name="man-news" />
+<input name="milkman" />
+<input name="letterman2" />
+<input name="newmilk" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有 name 包含 'man' 的 input 元素
+        // 结果:[ <input name="man-news" />, <input name="milkman" />, <input name="letterman2" /> ]
+        var $input = $("input[name*='man']");
+        console.log($input);
+    });
+</script>

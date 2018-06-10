@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合属性选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>需要同时满足多个条件时使用。</h3></center>
+<input id="man-news" name="man-news" />
+<input name="milkman" />
+<input id="letterman" name="new-letterman" />
+<input name="newmilk" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:找到所有含有 id 属性，并且它的 name 属性是以 man 结尾的input表单输入项
+        // 结果:[ <input id="letterman" name="new-letterman" /> ]
+        var $input = $("input[id][name$='man']");
+        console.log($input);
+    });
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>has选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":has(selector)")</font></h3></center>
+<center><h3>匹配含有选择器所匹配的元素的元素</h3></center>
+<div><p>Hello</p></div>
+<div>Hello again!</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:给所有包含 p 元素的 div 元素添加一个 text 类
+        // 结果:
+        var $divHasP = $("div:has(p)");
+        $divHasP.addClass("text");
+        console.log($divHasP);
+    });
+</script>
