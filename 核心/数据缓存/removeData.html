@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeData</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:removeData([name|list])</font></h3></center>
+<center><h3>在元素上移除存放的数据</h3></center>
+<center><h3>与 data([key], [value])函数作用相反</h3></center>
+<button type="button" id="btn2" >获取数据</button>
+<div data-greeting="javascript"></div>
+<div></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:从元素中删除之前添加的数据：
+        // 结果:
+        $("#btn2").click(function(){
+            console.log($("div").data("greeting"));//javascript
+            $("div:last").data("dataKey","dataValue");
+            $("div:last").removeData("dataKey");
+            alert("Greeting is: " + $("div:last").data("dataKey"));//Greeting is: undefined
+        });
+    });
+</script>
