@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>val</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:val([val|fn|arr])</font></h3></center>
+<center><h3>获得匹配元素的当前值。</h3></center>
+<center><h3>在 jQuery 1.2 中,可以返回任意元素的值了。包括select。如果多选，将返回一个数组，其包含所选的值。</h3></center>
+<input type="text" name="username" value="username"/>
+<select id="single">
+    <option>Single</option>
+    <option>Single2</option>
+</select>
+<select id="multiple" multiple="multiple">
+    <option selected="selected">Multiple</option>
+    <option>Multiple2</option>
+    <option selected="selected">Multiple3</option>
+</select><br/>
+<input type="checkbox" value="check1"/> check1
+<input type="checkbox" value="check2"/> check2
+<input type="radio" value="radio1"/> radio1
+<input type="radio" value="radio2"/> radio2
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 无参数 描述:获取文本框中的值
+        // 结果:username
+        var username = $("input[name='username']").val();
+        console.log(username);
+
+        // 参数val 描述:设定文本框的值
+        // 结果:javascript
+        $("input[type='text']").val("javascript");
+        console.log($("input[name='username']").val());
+
+        // 回调函数 描述:设定文本框的值
+        // index:表示当前遍历到的元素在匹配集合中的索引,从0开始
+        // data:表示当前遍历到的元素对应的之前val值
+        // this:表示的是当前匹配的元素的DOM对象形式
+        // $(this):表示当前匹配的元素的JQuery对象形式
+        $("input[name='username']").val(function (index,data) {
+            console.info("index="+index);
+            console.info("data="+data);
+            console.info("this="+this);
+            console.info("$(this)="+$(this));
+            return index + data;
+        });
+
+        // 参数array 描述:设定一个select和一个多选的select的值
+        // 数组的形式:[element1,element2,...]
+        $("#single").val("Single2");
+        $("#multiple").val(["Multiple2", "Multiple3"]);
+        $("input").val(["check2", "radio1"]);
+    });
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addClass</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:addClass(class|fn)</font></h3></center>
+<center><h3>为每个匹配的元素添加指定的类名。</h3></center>
+<p></p>
+<ul>
+    <li>Hello</li>
+    <li>Hello</li>
+    <li>Hello</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数class 描述:为匹配的元素加上 'selected' 类
+        // 结果:
+        $("p").addClass("selected");
+        console.info($("p"));
+
+        $("p").addClass("firstClass secondClass");
+        console.info($("p"));
+
+        // 回调函数 描述:给li加上不同的class
+        // index从0开始
+        $("ul > li").addClass(function(index){
+            return "li" + index;
+        });
+        console.info($("ul"));
+    });
+</script>

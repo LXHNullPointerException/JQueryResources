@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute不等值选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("[attribute!=value]")</font></h3></center>
+<center><h3>匹配所有不含有指定的属性，或者属性不等于特定值的元素。</h3></center>
+<center><h3>此选择器等价于 :not([attr=value]) 要匹配含有特定属性但不等于特定值的元素，请使用[attr]:not([attr=value])</h3></center>
+<input type="checkbox" name="newsletter" value="Hot Fuzz" />
+<input type="checkbox" name="newsletter" value="Cold Fusion" />
+<input type="checkbox" name="accept" value="Evil Plans" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有 name 属性不是 newsletter 的 input 元素
+        // 结果:[ <input type="checkbox" name="accept" value="Evil Plans" checked="true" /> ]
+        var $input = $("input[name!='newsletter']");
+        // 是的满足条件的复选框被选中
+        // 以下三种方式均可以实现该效果
+        $input.attr("checked",true);
+        $input.attr("checked","true");
+        $input.attr("checked","checked");
+
+        console.log($input);
+    });
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":input")</font></h3></center>
+<center><h3>匹配所有 input, textarea, select 和 button 元素</h3></center>
+<form>
+    <input type="button" value="Input Button"/>
+    <input type="checkbox" />
+
+    <input type="file" />
+    <input type="hidden" />
+    <input type="image" />
+
+    <input type="password" />
+    <input type="radio" />
+    <input type="reset" />
+
+    <input type="submit" />
+    <input type="text" />
+    <select><option>Option</option></select>
+
+    <textarea></textarea>
+    <button>Button</button>
+
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有的input元素，下面这些元素都会被匹配到。
+        // 结果:
+           /*
+           [
+                <input type="button" value="Input Button"/>,
+            <input type="checkbox" />,
+
+            <input type="file" />,
+            <input type="hidden" />,
+            <input type="image" />,
+
+            <input type="password" />,
+            <input type="radio" />,
+            <input type="reset" />,
+
+            <input type="submit" />,
+            <input type="text" />,
+            <select><option>Option</option></select>,
+
+            <textarea></textarea>,
+                <button>Button</button>,
+            ]
+            */
+        var $allInputElements = $(":input");
+        console.log($allInputElements);
+    });
+</script>

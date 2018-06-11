@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toggleClass</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:toggleClass(class|fn[,sw])</font></h3></center>
+<center><h3>如果存在（不存在）就删除（添加）一个类。</h3></center>
+<p>
+<strong>jQuery 代码:</strong>
+</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数class 描述:为匹配的元素切换 'selected' 类
+        // 结果:
+        $("p").toggleClass("selected");
+        console.info($("p"));
+        $("p").toggleClass("selected");
+        console.info($("p"));
+
+        // 参数class,switch 描述:每点击三下切换一次 'highlight' 类
+        var count = 0;
+        $("p").click(function () {
+            $(this).toggleClass("highlight", ++count % 3 == 0);
+        });
+    });
+</script>

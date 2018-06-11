@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("[attribute]")</font></h3></center>
+<center><h3>匹配包含给定属性的元素。</h3></center>
+<div>
+    <p>Hello!</p>
+</div>
+<div id="test2"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有含有 id 属性的 div 元素
+        // 结果:[ <div id="test2"></div> ]
+        var $divHasId = $("div[id]");
+        console.log($divHasId);
+    });
+</script>

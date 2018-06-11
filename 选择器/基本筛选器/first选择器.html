@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>first选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":first")</font></h3></center>
+<center><h3><font color="red">获取第一个元素</font></h3></center>
+<center><h3></h3></center>
+<ul>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:获取匹配的第一个元素
+        // 结果:[ <li>list item 1</li> ]
+        var $firstLi = $("li:first");
+        console.log($firstLi);
+    });
+</script>

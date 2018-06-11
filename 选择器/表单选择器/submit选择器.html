@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>submit选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$(":submit")</font></h3></center>
+<center><h3>匹配所有提交按钮，理论上只匹配 type="submit" 的input或者button，但是现在的很多浏览器，button元素默认的type即为submit，所以很多情况下，不设置type的button也会成为筛选结果。为了防止歧义或者误操作，建议所有的button在使用时都添加type属性。</h3></center>
+<form>
+    <input type="text" />
+    <input type="checkbox" />
+    <input type="radio" />
+    <input type="image" />
+    <input type="file" />
+    <input type="submit" />
+    <input type="reset" />
+    <input type="password" />
+    <input type="button" />
+    <select><option><option/></select>
+    <textarea></textarea>
+    <button></button>
+    <button type="button"></button>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有提交按钮
+        // 结果:[ <input type="submit" />, <button></button> ]
+        var $submit = $(":submit");
+        console.info($submit);
+    });
+</script>

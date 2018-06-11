@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星号选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <center><h3>匹配所有元素,多用于结合上下文来搜索。</h3></center>
+    <div>DIV</div>
+    <span>SPAN</span>
+    <p>P</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:找到每一个元素
+        // 结果:[ <div>DIV</div>, <span>SPAN</span>, <p>P</p> ]
+        var $all = $("*");
+        console.log($all);
+    });
+</script>

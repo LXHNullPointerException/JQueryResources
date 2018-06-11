@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后相邻所有选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("prev ~ siblings")</font></h3></center>
+<center><h3><font color="red">匹配 prev 元素之后的所有 siblings 元素</font></h3></center>
+<center><h3></h3></center>
+<form>
+    <label>Name:</label>
+    <input name="name"/>
+    <fieldset>
+        <label>Newsletter:</label>
+        <input name="newsletter"/>
+    </fieldset>
+</form>
+<input name="none"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:找到所有与表单同辈的 input 元素
+        // 结果:[ <input name="none" /> ]
+        // var $input = $("form~input");
+        var $input = $("form ~ input");
+        console.log($input);
+    });
+</script>

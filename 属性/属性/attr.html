@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attr</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:attr(name|properties|key,value|fn)</font></h3></center>
+<center><h3>设置或返回被选元素的属性值。</h3></center>
+<img src="https://www.baidu.com/img/bd_logo1.png" alt="该图片无法显示">
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数name 描述:获取指定属性的属性值
+        // 需求:返回文档中所有图像的src属性值。
+        // 结果:https://www.baidu.com/img/bd_logo1.png
+        var imageSrc = $("img").attr("src");
+        console.info(imageSrc);
+
+        // 参数properties 描述:给元素设置属性以及属性值
+        // 需求:为所有图像设置src和alt属性。
+        // 结果:https://www.baidu.com/img/bd_logo1.png
+        $("img").attr({"src": "http://jquery.cuishifeng.cn/images/top-img2_dc40f79.jpg","alt":"图片不显示"})
+
+        // 参数key,value 描述:给元素设置属性以及属性值
+        $("img").attr("src","https://www.baidu.com/img/bd_logo1.png");
+
+        // 参数key,回调函数 描述:
+        $("img").attr("title",function(){
+            // <img src="https://www.baidu.com/img/bd_logo1.png" alt="图片不显示" title="https://www.baidu.com/img/bd_logo1.png">
+            console.info(this);
+            // https://www.baidu.com/img/bd_logo1.png
+            console.info(this.src);
+            // 在DOM对象上调用Jquery方法
+            console.info(this.attr("src"));//报错:this.attr is not a function
+
+            // 将DOM对象转化成JQuery对象
+            console.info($(this));
+            // 调用JQuery对象的方法
+            console.info($(this).attr("src"));
+            // 在Jquery对象上调用DOM对象
+            console.info($(this).src);//undefined
+
+            return this.src;
+        });
+    });
+</script>

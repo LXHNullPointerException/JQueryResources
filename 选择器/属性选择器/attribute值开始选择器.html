@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute值开始选择器</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$("[attribute^=value]")</font></h3></center>
+<center><h3>匹配给定的属性对应的属性值是以某些值开始的元素</h3></center>
+<input name="newsletter" />
+<input name="milkman" />
+<input name="newsboy" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找所有 name 以 'news' 开始的 input 元素
+        // 结果:[ <input name="newsletter" />, <input name="newsboy" /> ]
+        var $input = $("input[name^='news']");
+        console.log($input);
+    });
+</script>
