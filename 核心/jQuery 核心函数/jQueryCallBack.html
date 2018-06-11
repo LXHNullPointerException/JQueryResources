@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryCallBack</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: jQuery(callback)</font></h3></center>
+<center><h3>$(document).ready()的简写。</h3></center>
+<center><h3>允许你绑定一个在DOM文档载入完成后执行的函数。</h3></center>
+<center><h3>这个函数的作用如同$(document).ready()一样，只不过用这个函数时，需要把页面中所有需要在 DOM 加载完成时执行的$()操作符都包装到其中来</h3></center>
+<center><h3>callback:DOM加载完成之后需要执行的回调函数</h3></center>
+<center><h3>callback:所谓回调函数就是将一个函数作为另一个函数的参数传递过去</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当DOM加载完成后，执行其中的函数。
+        console.info("最常用的方式");
+    });
+    // 使用 $(document).ready() 的简写，同时内部的 jQuery 代码依然使用 $ 作为别名，而不管全局的 $ 为何。
+    jQuery(function($) {
+        // 你可以在这里继续使用$作为别名...
+        console.info("不常用的方式");
+    });
+</script>
