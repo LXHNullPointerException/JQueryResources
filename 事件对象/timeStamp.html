@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>timeStamp</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:eve.timeStamp</font></h3></center>
+<center><h3>这个属性返回事件触发时距离1970年1月1日的毫秒数。</h3></center>
+<center><h3>这可以很方便的检测某个jQuery函数的性能。</h3></center>
+<div>获取两次点击的时间差</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:显示两次点击之间的时间。
+        // 结果:
+        // 第一次点击div:获取时间戳,并记录下来
+        // 第二次点击div:获取时间戳,并记录下来,然后减去第一次的时间戳
+
+        // 第一次的点击的时间戳
+        var firstTimeStamp;
+        // 第二次的点击的时间戳
+        var secondTimeStamp;
+        // 两次点击的事件的差值
+        var differentTime;
+        $("div").click(function (event) {
+
+            // 第一次点击div:获取时间戳,并记录下来
+            if (firstTimeStamp) {
+                // 说明已经点击了一次,这次是第二次点击,记录第二次点击的时间戳
+                secondTimeStamp = event.timeStamp;
+                differentTime = secondTimeStamp - firstTimeStamp;
+                console.info("differentTime="+differentTime);
+            } else {
+                // 说明是第一次点击,记录第一次点击的时间戳
+                firstTimeStamp = event.timeStamp;
+            }
+
+        });
+    });
+</script>

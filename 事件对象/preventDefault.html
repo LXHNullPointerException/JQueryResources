@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>preventDefault</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: eve.preventDefault()</font></h3></center>
+<center><h3>阻止默认事件行为的触发。</h3></center>
+<center><h3>例如，在执行这个方法后，如果点击一个锚点，就不会让浏览器跳转到新的 URL 去了。</h3></center>
+<center><h3>我们可以用 event.isDefaultPrevented() 来确定这个方法是否(在那个事件对象上)调用过了。</h3></center>
+<a href="http://www.baidu.com">default click action is prevented</a>
+<form method="GET" action="http://www.baidu.com">
+    username:<input name="username" value="zhangsan"><br/>
+    password:<input name="password" value="zhangsan"><br/>
+    <input type="submit" value="登录">
+</form>
+<div id="log"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:取消点击超链接默认链接跳转行为(导航)。
+        // 结果:
+        // 阻止超链接的默认行为
+        $("a").click(function (event) {
+            event.preventDefault();
+            console.log("event.type=" + event.type);//event.type=click
+            $('<div/>').append('default ' + event.type + ' prevented').appendTo('#log');
+        });
+        // 阻止点击提交按钮表单进行默认提交的默认行为
+        $("input[type='submit']").click(function (event) {
+            event.preventDefault();
+            console.log("event.type=" + event.type);//event.type=click
+            $('<div/>').append('default ' + event.type + ' prevented').appendTo('#log');
+        });
+    });
+</script>

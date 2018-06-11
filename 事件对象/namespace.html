@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>namespace</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:eve.namespace</font></h3></center>
+<center><h3>当事件被触发时此属性包含指定的命名空间。</h3></center>
+<center><h3></h3></center>
+<button>display event.namespace</button>
+<p></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:确定事件在命名空间中使用。
+        // 结果:不太明白这个结果??????????????
+        $("p").bind("test.something", function (event) {
+            alert(event.namespace); //something
+        });
+        $("button").click(function (event) {
+            $("p").trigger("test.something");
+        });
+    });
+</script>

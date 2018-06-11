@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>type</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: eve.type</font></h3></center>
+<center><h3></h3></center>
+<center><h3></h3></center>
+<a href="http://www.baidu.com">default click action is prevented</a>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:点击所有锚点后弹出事件类型。
+        // 结果:
+        $("a").click(function (event) {
+            event.preventDefault();
+            console.log(event.type);
+        });
+    });
+</script>

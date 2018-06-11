@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isDefaultPrevented</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: eve.isDefaultPrevented()</font></h3></center>
+<center><h3>根据事件对象中是否调用过 event.preventDefault() 方法来返回一个布尔值。</h3></center>
+<center><h3></h3></center>
+<a href="http://www.baidu.com">default click action is prevented</a>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:检测 event.preventDefault() 是否被调用过。
+        // 结果:
+        $("a").click(function (event) {
+            alert(event.isDefaultPrevented);
+            event.preventDefault();
+            alert(event.isDefaultPrevented);
+        });
+    });
+</script>

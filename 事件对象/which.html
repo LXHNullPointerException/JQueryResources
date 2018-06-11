@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>which</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:eve.which</font></h3></center>
+<center><h3>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮。</h3></center>
+<center><h3>event.which 将 event.keyCode 和 event.charCode 标准化了。推荐用 event.which 来监视键盘输入。</h3></center>
+<input id="whichkey" value="type something">
+<div id="log"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:记录按键。
+        // 结果:e.which输出的是
+        $('#whichkey').bind('keydown', function (e) {
+            $('#log').html(e.type + ': ' + e.which);
+        });
+    });
+</script>

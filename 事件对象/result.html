@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 undefined </h3></center>
+<center><h3></h3></center>
+<button>display event.result</button>
+<p></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:显示前一个事件处理函数的返回值。
+        // 结果:
+        $("button").click(function (event) {
+            return "hey";
+        });
+        $("button").click(function (event) {
+            $("p").html(event.result);
+        });
+    });
+</script>
