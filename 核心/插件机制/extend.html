@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:jQuery.extend(object)</font></h3></center>
+<center><h3>扩展jQuery对象本身。</h3></center>
+<center><h3>用来在jQuery命名空间上增加新函数。</h3></center>
+<center><h3>object:用以扩展 jQuery 对象</h3></center>
+
+<script type="text/javascript">
+    jQuery.extend({
+        min: function (a, b) {
+            return a < b ? a : b;
+        },
+        max: function (a, b) {
+            return a > b ? a : b;
+        }
+    });
+    // 需求:在jQuery命名空间上增加两个函数。
+    $(function () {
+        // 结果:
+        var minNumber = jQuery.min(3,5);
+        console.log("minNumber="+minNumber);
+        var maxNumber = jQuery.max(3,5);
+        console.log("maxNumber="+maxNumber);
+    });
+</script>
+</body>
+</html>

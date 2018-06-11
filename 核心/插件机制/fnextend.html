@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fn.extend</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: jQuery.fn.extend(object)</font></h3></center>
+<center><h3>扩展 jQuery 元素集来提供新的方法（通常用来制作插件）。</h3></center>
+<center><h3>object用来扩充 jQuery 对象。</h3></center>
+<input type="checkbox" name="programLanguage" value="Java" checked="checked"/>Java
+<input type="checkbox" name="programLanguage" value="C++" checked="checked"/>C++<br/>
+<input type="radio" name="sex" value="male">男
+<input type="radio" name="sex" value="female" checked="checked">女<br/>
+</body>
+</html>
+<script type="text/javascript">
+    // 需求:增加两个插件方法。
+    jQuery.fn.extend({
+        check: function () {
+            return this.each(function () {
+                this.checked = true;
+            });
+        },
+        uncheck: function () {
+            return this.each(function () {
+                this.checked = false;
+            });
+        }
+    });
+
+    $(function () {
+        // 结果:
+        $("input[value='female']").check();
+        $("input[value='C++']").uncheck();
+    });
+</script>
