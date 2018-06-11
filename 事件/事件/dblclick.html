@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dblclick</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:dblclick([[data],fn])</font></h3></center>
+<center><h3>当双击元素时，会发生 dblclick 事件。</h3></center>
+<center><h3>当鼠标指针停留在元素上方，然后按下并松开鼠标左键时，就会发生一次 click。</h3></center>
+<center><h3>在很短的时间内发生两次 click，即是一次 double click 事件。</h3></center>
+<center><h3>在很短的时间内发生两次 click，即是一次 double click 事件。</h3></center>
+<p>JavaScript is web frontend language!</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:给页面上每个段落的双击事件绑上 "Hello World!" 警告框
+        // 结果:双击对应的段落输出Hello world!
+        $("p").dblclick(function () {
+            console.info("Hello world!");
+        });
+    });
+</script>

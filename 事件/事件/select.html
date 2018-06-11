@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:select([[data],fn])</font></h3></center>
+<center><h3>当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件。</h3></center>
+<center><h3>这个函数会调用执行绑定到select事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。</h3></center>
+<input type="text" name="username" value="username"/><br/>
+<input type="password" name="username" value="username"/><br/>
+<input type="textarea" name="introduce" value="introduce myself"/><br/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:触发所有input元素的select事件:
+        // 结果:
+        $(":input").select(function (event) {
+            /* ...do something... */
+            console.info(event + "文本被选中");
+        });
+    });
+</script>

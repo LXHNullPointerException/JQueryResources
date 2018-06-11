@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:resize([[data],fn])</font></h3></center>
+<center><h3>当调整浏览器窗口的大小时，发生 resize 事件。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:让人每次改变页面窗口的大小时调用很郁闷的方法:
+        // 结果:
+        $(window).resize(function(){
+            alert("Stop it!");
+        });
+    });
+</script>

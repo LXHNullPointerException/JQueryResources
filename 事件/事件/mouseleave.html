@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseleave</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>当鼠标指针离开元素时，会发生 mouseleave 事件。该事件大多数时候会与mouseenter 事件一起使用。</h3></center>
+<center><h3>与 mouseout 事件不同，只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。如果鼠标指针离开任何子元素，同样会触发 mouseout 事件。</h3></center>
+<p>Linux</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当鼠标指针离开元素时，改变元素的背景色：
+        // 结果:只有当鼠标离开对应的元素时,才会发生mouseleave事件
+        $("p").mouseleave(function () {
+            $("p").css("background-color","yellow");
+        });
+    });
+</script>

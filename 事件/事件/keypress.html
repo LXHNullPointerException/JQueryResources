@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keydown</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: keypress([[data],fn])</font></h3></center>
+<center><h3>当键盘被按下时，发生 keypress 事件。</h3></center>
+<center><h3>keypress 事件与 keydown 事件类似。当按钮被按下时，会发生该事件。</h3></center>
+<center><h3>它发生在当前获得焦点的元素上。</h3></center>
+<center><h3> 不过，与 keydown 事件不同，每插入一个字符，就会发生 keypress 事件。</h3></center>
+<center><h3>注释：如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生。</h3></center>
+<input type="button" value="登录"/><br/>
+<input type="submit" value="提交"/><br/>
+<input type="reset" value="重置"/><br/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:在页面内对键盘按键做出回应
+        // 结果:它发生在当前获得焦点的元素上。
+       $("input[type='button']").keypress(function (event) {
+           console.info("event="+event);
+           if( 13 == event.keyCode || 32 == event.keyCode){
+               console.info("登录按钮被点击!");
+           }
+       });
+    });
+</script>

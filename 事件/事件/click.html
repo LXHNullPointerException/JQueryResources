@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:click([[data],fn])</font></h3></center>
+<center><h3>触发每一个匹配元素的click事件。这个函数会调用执行绑定到click事件的所有函数。</h3></center>
+<p>JavaScript is web frontend language!</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:将页面内所有段落点击后隐藏。
+        // 结果:
+        $("p").click(function () {
+            // 当段落被点击之后,将段落隐藏
+            // this为DOM对象,需要调用JQuery方法的时候
+            // 需要将DOM对象转化成JQuery对象:
+            // DOM==>JQuery:$(DOM对象)
+            $(this).hide();
+        });
+    });
+</script>

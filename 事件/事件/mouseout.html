@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseout</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:mouseout([[data],fn])</font></h3></center>
+<center><h3>当鼠标指针从元素上移开时，发生 mouseout 事件</h3></center>
+<center><h3>该事件大多数时候会与 mouseover 事件一起使用。</h3></center>
+<center><h3>注释：与 mouseleave 事件不同，不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。</h3></center>
+<center><h3>只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。</h3></center>
+<div>
+    <p>C</p>
+    <p>Linux</p>
+    <p>C++</p>
+    <p>Java</p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 使用mouseleave是完全匹配
+        /*
+        $("div").mouseleave(function () {
+            $("div").css("background-color","yellow");
+        });
+        */
+
+        // 需求:当鼠标从元素上移开时，改变元素的背景色：
+        // 结果:不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件
+        $("div").mouseout(function () {
+            $("div").css("background-color","yellow");
+        });
+    });
+</script>

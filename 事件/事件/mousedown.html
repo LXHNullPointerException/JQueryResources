@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mousedown</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:mousedown([[data],fn])</font></h3></center>
+<center><h3>当鼠标指针移动到元素上方，并按下鼠标按键时，会发生 mousedown 事件。</h3></center>
+<center><h3>mousedown 与 click 事件不同，mousedown 事件仅需要按键被按下，而不需要松开即可发生。</h3></center>
+<p>Java</p>
+<button>切换P标签</button>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当按下鼠标按钮时，隐藏或显示元素：
+        // 结果:只有当鼠标移动到元素上方,并按下鼠标左键/右键的时候才会触发事件
+        $("button").mousedown(function(){
+            $("p").toggle();
+        });
+    });
+</script>

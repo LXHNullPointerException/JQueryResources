@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keyup</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>当按钮被松开时，发生 keyup 事件。它发生在当前获得焦点的元素上。</h3></center>
+<center><h3>注释：如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生。</h3></center>
+<input type="text" name="username"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当按下按键弹起时，改变文本域的颜色：
+        // 结果:只有当键盘被按下的时候,键盘按键才会弹起.
+        $("input[name='username']").keyup(function () {
+            $("input").css("background-color","red")
+        });
+    });
+</script>

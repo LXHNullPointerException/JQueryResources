@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:change([[data],fn])</font></h3></center>
+<center><h3>当元素的值发生改变时，会发生 change 事件。</h3></center>
+<center><h3>该事件仅适用于文本域（text field），以及 textarea 和 select 元素。</h3></center>
+<center><h3>当用于 select 元素时，change 事件会在选择某个选项时发生。</h3></center>
+<center><h3>当用于 text field 或 text area 时，该事件会在元素失去焦点时发生。</h3></center>
+<input type="text" name="username"/>
+<input type="textarea" name="introduce"/>
+<input type="password" name="password"/>
+<select name="province">
+    <option value="hb">湖北省</option>
+    <option value="hn">湖南省</option>
+    <option value="heb">河北省</option>
+</select>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当用于textfield时
+        // 结果:当文本框失去焦点的时候,就出发change事件
+        $("input[name='username']").change(function(){
+            console.info($("input[type='text']").val());
+        });
+        $("input[name='introduce']").change(function () {
+            console.info($("input[type='textarea']").val());
+        });
+        $("input[name='password']").change(function(){
+            console.info($("input[type='password']").val());
+        });
+
+        // 需求:当用于select下拉框时
+        // 结果:只有当选择一个新的下拉选项的时候,才会出发change事件
+        $("select[name='province']").change(function () {
+            console.info($("select").val());
+        });
+    });
+</script>

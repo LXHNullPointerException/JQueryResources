@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>submit</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:submit([[data],fn])</font></h3></center>
+<center><h3>当提交表单时，会发生 submit 事件。</h3></center>
+<center><h3> 该事件只适用于表单元素。</h3></center>
+<form action="http://www.baidu.com">
+    <input type="text" />
+    <input type="checkbox" />
+    <input type="radio" />
+    <input type="image" />
+    <input type="file" />
+    <input type="submit" />
+    <input type="reset" />
+    <input type="password" />
+    <input type="button" />
+    <select><option/></select>
+    <textarea></textarea>
+    <button></button>
+</form>
+<form action="http://www.baidu.com">
+    <input type="text" />
+    <input type="checkbox" />
+    <input type="radio" />
+    <input type="image" />
+    <input type="file" />
+    <input type="submit" />
+    <input type="reset" />
+    <input type="password" />
+    <input type="button" />
+    <select><option/></select>
+    <textarea></textarea>
+    <button></button>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:提交本页的第一个表单:
+        // 结果:
+        $("form:first").submit();
+
+        // 需求:如果你要阻止表单提交:
+        $("form:first").submit(function () {
+            return false;
+        });
+    });
+</script>

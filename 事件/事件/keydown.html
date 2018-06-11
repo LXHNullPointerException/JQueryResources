@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keydown</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: keydown([[data],fn])</font></h3></center>
+<center><h3>当键盘被按下时，发生 keydown 事件。</h3></center>
+<center><h3>注释：如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生。</h3></center>
+<input type="button" value="登录"/><br/>
+<input type="submit" value="提交"/><br/>
+<input type="reset" value="重置"/><br/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:在页面内对键盘按键做出回应
+        // 结果:
+        $(window).keydown(function (event) {
+            console.info("键盘按键被点击了...")
+            switch (event.keyCode) {
+                // ...
+                // 不同的按键可以做不同的事情
+                // 不同的浏览器的keycode不同
+                // 更多详细信息:     http://unixpapa.com/js/key.html
+                // 常用keyCode： 空格 32   Enter 13   ESC 27
+                case 13:
+                    console.info("回车键码:" + event.keyCode);
+                    break;
+                case 27:
+                    console.info("ESC键码:" + event.keyCode);
+                    break;
+                case 32:
+                    console.info("空格键码:" + event.keyCode);
+                    break;
+                default:
+                    console.info("其他键被按下了!");
+            }
+        });
+    });
+</script>

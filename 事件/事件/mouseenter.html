@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseenter</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: mouseenter([[data],fn])</font></h3></center>
+<center><h3>当鼠标指针穿过元素时，会发生 mouseenter 事件。该事件大多数时候会与mouseleave 事件一起使用。</h3></center>
+<center><h3>与 mouseover 事件不同，只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。</h3></center>
+<center><h3>如果鼠标指针穿过任何子元素，同样会触发 mouseover 事件。</h3></center>
+<p>Linux</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当鼠标指针进入（穿过）元素时，改变元素的背景色：
+        // 结果:当鼠标进入或者穿过对应的元素时,就会触发该mouseenter事件
+        $("p").mouseenter(function(){
+            $("p").css("background-color","yellow");
+        });
+    });
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>focus</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:focus([[data],fn])</font></h3></center>
+<center><h3>当元素获得焦点时，触发 focus 事件。</h3></center>
+<center><h3>可以通过鼠标点击或者键盘上的TAB导航触发。</h3></center>
+<center><h3>这将触发所有绑定的focus函数，注意，某些对象不支持focus方法。</h3></center>
+username:<input name="username" type="text" /><br/>
+password:<input name="password" type="password"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:当页面加载后将 name 为 'username' 的元素设置焦点:
+        // 结果:当页面加载完成之后,username表单输入项获取到焦点
+        $("input[name='username']").focus();
+
+        // 需求:当用户名文本框获取焦点之后执行逻辑
+        // 结果:[object Object]已经获取到焦点
+        // 只有当:失去焦点状态===>获得焦点的状态,才会触发事件处理函数
+        $("input[name='username']").focus(function () {
+            console.info($("input[type='text']")+"已经获取到焦点");
+        });
+
+        // 需求:使人无法使用password文本框:
+        $("input[name='password']").focus(function () {
+            // 当表单输入项获取焦点的时候,就立即让其失去焦点
+            console.info("密码框获得焦点");
+            $("input[type='password']").blur();
+        });
+    });
+</script>
