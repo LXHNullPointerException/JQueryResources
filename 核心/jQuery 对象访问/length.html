@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>length</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:length</font></h3></center>
+<center><h3>jQuery 对象中元素的个数。</h3></center>
+<center><h3>这个函数的返回值与 jQuery 对象的size()属性一致。</h3></center>
+<img src="test1.jpg"/> <img src="test2.jpg"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:计算文档中所有图片数量
+        // 结果:length=2
+        console.log("length="+$("img").length);
+    });
+</script>

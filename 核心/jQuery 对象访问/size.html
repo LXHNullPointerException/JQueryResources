@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>size</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:size()</font></h3></center>
+<center><h3>jQuery 对象中元素的个数</h3></center>
+<center><h3>当前匹配的元素个数。与length 将返回相同的值。</h3></center>
+<center><h3>自1.8版本废弃，请使用.length代替</h3></center>
+<img src="test1.jpg"/> <img src="test2.jpg"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:计算文档中所有图片数量
+        // 结果:使用size()函数已经被弃用
+        // var size = $("img").size();
+        // console.log($("img").size());
+
+        // 计算匹配元素的个数的是length属性,不是length()方法
+        var length = $("img").length;
+        console.log("length="+length);
+        console.log("length()="+$("img").length());
+        // console.log("length==size?"+length==size);
+    });
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>context</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:context</font></h3></center>
+<center><h3>返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数</h3></center>
+<center><h3>如果没有指定，那么context指向当前的文档(document)。</h3></center>
+<center><h3>可以与selector一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:检测使用的文档内容:jQuery([sel,[context]])
+        // 结果:
+        /*
+        [object HTMLDocument]  //如果是IE浏览器，则返回[object]
+        BODY
+        */
+        $("ul")
+            .append("<li>" + $("ul").context + "</li>")
+            .append("<li>" + $("ul", document.body).context.nodeName + "</li>");
+    });
+</script>

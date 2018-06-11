@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selector</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:selector</font></h3></center>
+<center><h3>返回传给jQuery()的原始选择器。</h3></center>
+<center><h3>换句话说，就是返回你用什么选择器来找到这个元素的。</h3></center>
+<center><h3>可以与context一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:确定查询的选择器
+        // 结果:只是在内存中建立??????????
+        /*
+        ul
+        ul li
+        div#foo ul:not([class])
+        */
+        $("ul")
+            .append("<li>" + $("ul").selector + "</li>")
+            .append("<li>" + $("ul li").selector + "</li>")
+            .append("<li>" + $("div#foo ul:not([class])").selector + "</li>");
+    });
+</script>

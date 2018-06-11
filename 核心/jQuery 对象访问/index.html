@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:index([selector|element])</font></h3></center>
+<center><h3>搜索匹配的元素，并返回相应元素的索引值，从0开始计数。</h3></center>
+<center><h3>如果不给 .index() 方法传递参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。</h3></center>
+<center><h3>如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。</h3></center>
+<center><h3>如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。</h3></center>
+<center><h3>如果找不到匹配的元素，则返回-1。</h3></center>
+<ul>
+    <li id="foo">foo</li>
+    <li id="bar">bar</li>
+    <li id="baz">baz</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:查找元素的索引值
+        // 结果:
+        //1，传递一个DOM对象，返回这个对象在原先集合中的索引位置
+        var index = $('li').index(document.getElementById('bar'));
+        console.log("index=" + index);//index = 1
+
+        //2，传递一个jQuery对象
+        index = $('li').index($('#bar'));
+        console.log("index=" + index);//index = 1
+
+        //3，传递一组jQuery对象，返回这个对象中第一个元素在原先集合中的索引位置
+        $('li').index($('li:gt(0)'));
+        console.log("index=" + index);//index = 1
+
+        //4，传递一个选择器，返回#bar在所有li中的索引位置
+        $('#bar').index('li');
+        console.log("index=" + index);//index = 1
+
+        //5，不传递参数，返回这个元素在同辈中的索引位置。
+        $('#bar').index();
+        console.log("index=" + index);//index = 1
+    });
+</script>

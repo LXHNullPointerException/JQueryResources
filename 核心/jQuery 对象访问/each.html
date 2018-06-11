@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:each(callback)</font></h3></center>
+<center><h3>以每一个匹配的元素作为上下文来执行一个函数。</h3></center>
+<center><h3>意味着，每次执行传递进来的函数时，函数中的this关键字都指向一个不同的DOM元素。</h3></center>
+<center><h3>（每次都是一个不同的匹配元素）</h3></center>
+<center><h3>在每次执行函数时，都会给函数传递一个表示作为执行环境的元素在匹配的元素集合中所处位置的数字值作为参数</h3></center>
+<center><h3>（从零开始的整型）</h3></center>
+<center><h3> 返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。</h3></center>
+<center><h3> callback:对于每个匹配的元素所要执行的函数</h3></center>
+<img src="https://www.baidu.com/img/bd_logo1.png"/>
+<img src="https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png"/>
+<button>Change colors</button>
+<span></span>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div id="stop">Stop here</div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:迭代两个图像，并设置它们的 src 属性。
+        // 注意:此处 this 指代的是 DOM 对象而非 jQuery 对象。
+        // 结果:[ <img src="test0.jpg" />, <img src="test1.jpg" /> ]
+        var $imgArr = $("img");
+        console.info($imgArr);
+        $imgArr.each(function (index, dom) {
+            console.info("index=" + index);
+            console.info("dom=" + dom);
+            console.info("this=" + this);
+            console.info("this==dom?" + this == dom);
+            console.info("$(this)=" + $(this));
+            this.src = "test" + index + ".png";
+        });
+
+        // 将DOM对象转化成JQuery对象
+        // 如果你想得到 jQuery对象，可以使用 $(this) 函数。
+        $("div").each(function () {
+            console.info("this=" + this);
+            console.info("$(this)=" + $(this));
+            $(this).toggleClass("JavaScript");
+        })
+
+        // 你可以使用 'return' 来提前跳出 each() 循环。
+        $("button").click(function () {
+            $("div").each(function (index, domEle) {
+                // domEle == this
+                console.log("domEle == this?" + domEle == this);
+                $(domEle).css("backgroundColor", "yellow");
+                if ($(this).is("#stop")) {
+                    $("span").text("Stopped at div index #" + index);
+                    return false;
+                }
+            });
+        });
+    });
+</script>

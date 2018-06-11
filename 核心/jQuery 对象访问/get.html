@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: get([index])</font></h3></center>
+<center><h3>取得其中一个匹配的元素。 num表示取得第几个匹配的元素。从0开始，返回的是DOM对象</h3></center>
+<center><h3>类似的有eq(index),不过eq(index)返回的是jQuery对象。</h3></center>
+<center><h3>这能够让你选择一个实际的DOM 元素并且对他直接操作，而不是通过 jQuery 函数。</h3></center>
+<center><h3>$(this).get(0)与$(this)[0]等价。</h3></center>
+<img src="test1.jpg"/> <img src="test2.jpg"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 1.JQuery对象是什么?
+        // 通过JQuery和核心函数$(selector)获取的对象都是JQuery对象,如$("input[name='username']")
+        // 2.DOM对象是什么?
+        // 通过JavaScript原生代码获取的对象是DOM对象,如document.getElementById("id");
+        // 3.JQuery对象能够干什么?
+        // 使用JQuery对象可以调用JQuery提供的API方法,属性等
+        // 4.DOM对象能干什么?
+        // 使用DOM对象可以调用原生JavaScript中DOM对象的属性和方法
+        // 5.他们之间的区别?
+        // JQuery对象不能调用DOM对象的方法和属性,DOM对象不能调用JQuery对象的方法和属性
+        // 6.如何将JQuery对象==>DOM对象?
+        // JQuery对象[0] 或者 JQuery对象.get(0) 的方式可以将JQuery对象转化成DOM对象
+        // 7.如何将DOM对象转==>JQuery对象?
+        // $(DOM) 可以将DOM对象转化成JQuery对象
+        // 之所以我们想转化是因为我们想充分利用JQuery对象和JS原生的DOM对象的API和属性
+
+        // 需求:将JQuery对象转化成DOM对象
+        var $img = $("img");
+        console.log($img.get(0));//[ <img src="test1.jpg"/> ]
+        console.log($img.get(1));//[ <img src="test2.jpg"/> ]
+        console.log($img[0]);//[ <img src="test1.jpg"/> ]
+        console.log($img[1]);//[ <img src="test2.jpg"/> ]
+        console.log($img[0] == $img[0]);//true
+        console.log($img[1] == $img[1]);//true
+        console.log($img[0] === $img[0]);//true
+        console.log($img[1] === $img[1]);//true
+
+        // 需求:选择文档中所有图像作为元素数组，并用数组内建的 reverse 方法将数组反向。
+        var reverseArr = $("img").get().reverse();
+        console.info("reverseArr="+reverseArr);//reverseArr=[object HTMLImageElement],[object HTMLImageElement]
+    });
+</script>
