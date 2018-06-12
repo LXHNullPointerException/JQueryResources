@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.inArray</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.inArray(val,arr,[from])</font></h3></center>
+<center><h3>确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。</h3></center>
+<center><h3>jQuery.inArray(value,array,[fromIndex])</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // value:用于在数组中查找是否存在:可以是任意的类型
+        // array:待处理数组。Array类型
+        // fromIndex:用来搜索数组队列，默认值为0。Number类型
+
+        // 需求:查看对应元素的位置
+        // 结果:
+        var arr = [ 4, "Pete", 8, "John" ];
+        console.log(jQuery.inArray("John", arr));//3
+        console.log(jQuery.inArray(4, arr));//0
+        console.log(jQuery.inArray("David", arr));//-1
+        console.log(jQuery.inArray("Pete", arr, 2));//-1
+    });
+</script>

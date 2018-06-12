@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$merge</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.merge(first,second)</font></h3></center>
+<center><h3>合并两个数组</h3></center>
+<center><h3>返回的结果会修改第一个数组的内容——第一个数组的元素后面跟着第二个数组的元素。</h3></center>
+<center><h3>要去除重复项，请使用$.unique()</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 类型为:Array
+        // first:第一个待处理数组，会改变其中的元素。
+        // 类型为:Array
+        // second:第二个待处理数组，不会改变其中的元素。
+
+        // 需求:合并两个数组到第一个数组上。
+
+        var first = [0, 1, 2];
+        var second = [2, 3, 4];
+        console.log("合并前first=" + first);
+        console.log("合并前second=" + second);
+        var mergeArr = $.merge(first, second);
+        console.log("合并后first=" + first);
+        console.log("合并后second=" + second);
+        console.log("合并后mergeArr=" + mergeArr);
+
+        // 结果:
+        // 合并前first=0,1,2
+        // 合并前second=2,3,4
+        // 合并后first=0,1,2,2,3,4
+        // 合并后second=2,3,4
+        // 合并后mergeArr=0,1,2,2,3,4
+
+        // 结果:
+        // 1.不能去重
+        // 2.合并之后,firstArray = firstArray + secondArray;
+    });
+</script>

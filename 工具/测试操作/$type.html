@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.type</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.type(obj)</font></h3></center>
+<center><h3>检测obj的数据类型。</h3></center>
+<center><h3>jQuery.type(obj)</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:以下obj的类型如下：
+        // 结果:true
+        console.log(jQuery.type(true) === "boolean");
+        console.log(jQuery.type(3) === "number");
+        console.log(jQuery.type("test") === "string");
+        console.log(jQuery.type(function(){}) === "function");
+        console.log(jQuery.type([]) === "array");
+        console.log(jQuery.type(new Date()) === "date");
+        console.log(jQuery.type(/test/) === "regexp");
+    });
+</script>

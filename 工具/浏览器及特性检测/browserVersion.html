@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>browserVersion</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.browser.version</font></h3></center>
+<center><h3>jQuery.browser.version</h3></center>
+<center><h3>在jQuery 1.3中不建议使用。浏览器渲染引擎版本号。</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:显示当前 IE 浏览器版本号。
+        // 不推荐使用
+        // 结果:Cannot read property 'version' of undefined
+        alert( $.browser.version );
+    });
+</script>

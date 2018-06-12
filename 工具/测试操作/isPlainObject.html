@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isPlainObject</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.isPlainObject(obj)</font></h3></center>
+<center><h3>测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的）。</h3></center>
+<center><h3>jQuery.isPlainObject(obj)</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:测试是否为纯粹的对象
+        // 结果:
+        console.log(jQuery.isPlainObject({}));// true
+        console.log(jQuery.isPlainObject("test"));// false
+    });
+</script>

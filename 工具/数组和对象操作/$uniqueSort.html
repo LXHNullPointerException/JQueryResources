@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$uniqueSort</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.uniqueSort(array)</font></h3></center>
+<center><h3>jQuery.uniqueSort(array)</h3></center>
+<center><h3>$.uniqueSort()函数通过搜索的数组对象，排序数组，并移除任何重复的节点。</h3></center>
+<center><h3>如果一个节点和已经在数组中的节点完全相同，那么它被认为是重复的;</h3></center>
+<center><h3> 两个不同的节点具有相同的属性是被认为不重复的。</h3></center>
+<center><h3>此功能只适用于普通的JavaScript DOM元素的数组，主要是jQuery内部使用。</h3></center>
+<center><h3>你可能永远都不需要使用它。</h3></center>
+<center><h3>在jQuery 3.0之前, 这个方法叫做 jQuery.unique() .</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:删除重复 div 标签。
+        // 结果:[<div>, <div>, ...]
+        $.uniqueSort(document.getElementsByTagName("div"));
+    });
+</script>

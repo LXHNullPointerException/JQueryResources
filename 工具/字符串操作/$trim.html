@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.trim</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.trim(str)</font></h3></center>
+<center><h3>去掉字符串起始和结尾的空格。</h3></center>
+<center><h3>jQuery.trim(str)</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:去掉字符串起始和结尾的空格。
+        // 结果:str=hello, how are you?
+        var str = $.trim("  hello, how are you?  ");
+        console.log("str=" + str);
+    });
+</script>

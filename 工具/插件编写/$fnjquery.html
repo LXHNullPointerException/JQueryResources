@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> $.fn.jquery</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>代表 jQuery 版本号的字符串。</h3></center>
+<center><h3>.jquery 属性是通过 jQuery 原型赋值的，通过使用它的别名 $.fn 进行引用。</h3></center>
+<center><h3>它是一个含有 jQuery 版本号的字符串，例如 "1.5.0" 或 "1.4.4".</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:判断一个对象是否是 jQuery 对象。
+        // 结果:为什么这个函数是这么调用的?/??????
+        var a = {what: "A regular JS object"},
+            b = $('body');
+        if (a.jquery) { // falsy, since it's undefined
+            alert(' a is a jQuery object! ');
+        }
+        if (b.jquery) { // truthy, since it's a string
+            alert(' b is a jQuery object! ');
+        }
+
+        // 需求:取得页面上当前使用的 jQuery 的版本号。
+        alert( 'You are running jQuery version: ' + $.fn.jquery );
+    });
+</script>

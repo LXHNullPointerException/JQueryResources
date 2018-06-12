@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$each</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.each(object,[callback])</font></h3></center>
+<center><h3>通用遍历方法，可用于遍历对象和数组。</h3></center>
+<center><h3>不同于遍历 jQuery 对象的 $().each() 方法，此方法可用于遍历任何对象。</h3></center>
+<center><h3>回调函数拥有两个参数：第一个为对象的成员或数组的索引，第二个为对应变量或内容。</h3></center>
+<center><h3>如果需要退出 each 循环可使回调函数返回 false，其它返回值将被忽略。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // object:需要遍历的对象或数组。(Object类型)
+        // callback:每个成员/元素执行的回调函数。(Function函数)
+
+        // 需求:遍历数组，同时使用元素索引和内容。
+        // 结果:当遍历数组的时候
+        // index:表示的是当前遍历到的数组元素的索引
+        // value:表示当前遍历到的数组元素的元素值
+        $.each([0, 1, 2, 100, 200, 300], function (index, value) {
+            console.log("Item #" + index + ": " + value);
+        });
+
+        // 需求:遍历对象，同时使用成员名称和变量内容。
+        // 结果:当遍历json对象的时候
+        // index:表示当前遍历到的对象的变量名称(成员)
+        // value:表示当前遍历到的对象的变量对应的value
+        $.each({name: "John", lang: "JS"}, function (index, value) {
+            console.log("Name: " + index + ", Value: " + value);
+        });
+
+        // 总结:
+        // 遍历对象可以使用$.each(),也可以使用$(selector).each().
+        // 遍历数组只能使用$.each().
+    });
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$isNumeric</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.isNumeric(value)</font></h3></center>
+<center><h3>jQuery.isNumeric(value)</h3></center>
+<center><h3>确定它的参数是否是一个数字。</h3></center>
+<center><h3>如果是这样，它返回 true。否则，它返回false。</h3></center>
+<center><h3>$.isNumeric() 方法检查它的参数是否代表一个数值。该参数可以是任何类型的</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:
+        // 结果:
+        console.log($.isNumeric("-10"));// true
+        console.log($.isNumeric(16));// true
+        console.log($.isNumeric(0xFF));// true
+        console.log($.isNumeric("8e5"));//true (exponential notation string)
+        console.log($.isNumeric(3.1415));// true
+        console.log($.isNumeric(+10));// true
+        //console.log($.isNumeric(0144));// true (octal integer literal)
+        console.log($.isNumeric(""));// false (empty object)
+        console.log($.isNumeric({}));// false (empty object)
+        console.log($.isNumeric(NaN));// false
+        console.log($.isNumeric(null));// false
+        console.log($.isNumeric(true));// false
+        console.log($.isNumeric(Infinity));// false
+        console.log($.isNumeric(undefined));// false
+    });
+</script>

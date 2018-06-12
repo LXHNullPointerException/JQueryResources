@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$param</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.param(obj,[traditional])</font></h3></center>
+<center><h3>将表单元素数组或者对象序列化。是.serialize()的核心方法。</h3></center>
+<center><h3>在jQuery 1.3中，如果传递的参数是一个函数，那么用.param()会得到这个函数的返回值，而不是把这个函数作为一个字符串来返回</h3></center>
+<center><h3>在jQuery 1.4中，.param()会深度递归一个对象来满足现在脚本语言和框架，比如PHP， Ruby on Rails等。你可以通过jQuery.ajaxSettings.traditional =
+    true; 来全局得禁用这个功能。</h3></center>
+<center><h3>注意：因为有些框架在解析序列化数字的时候能力有限，所以当传递一些含有嵌套对象、数组的对象作为参数时，请务必小心！</h3></center>
+<center><h3>在jQuery 1.4中，HTML5的input元素也会被序列化。</h3></center>
+<p id="results"></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // obj:数组或jQuery对象会按照name/value对进行序列化，
+        // 普通对象按照key/value对进行序列化。
+        // traditional:是否使用传统的方式浅层序列化。
+
+        // 需求:按照key/value对序列化普通对象。
+        // 结果:width=1680&height=1050
+        var params = {width: 1680, height: 1050};
+        var str = jQuery.param(params);
+        $("#results").text(str);
+
+        // 需求:对比两种序列化方式
+        var myObject = {
+            a: {
+                one: 1,
+                two: 2,
+                three: 3
+            },
+            b: [1, 2, 3]
+        };
+        var recursiveEncoded = $.param(myObject);
+        var recursiveDecoded = decodeURIComponent($.param(myObject));
+
+        alert(recursiveEncoded);
+        alert(recursiveDecoded);
+        //a%5Bone%5D=1&a%5Btwo%5D=2&a%5Bthree%5D=3&b%5B%5D=1&b%5B%5D=2&b%5B%5D=3
+        //a[one]=1&a[two]=2&a[three]=3&b[]=1&b[]=2&b[]=3
+
+        var shallowEncoded = $.param(myObject, true);
+        var shallowDecoded = decodeURIComponent(shallowEncoded);
+
+        alert(shallowEncoded);
+        alert(shallowDecoded);
+        //a=%5Bobject+Object%5D&b=1&b=2&b=3
+        //a=[object+Object]&b=1&b=2&b=3
+    });
+</script>

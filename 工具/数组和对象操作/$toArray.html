@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$toArray</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.toArray()</font></h3></center>
+<center><h3>jQuery.toArray()</h3></center>
+<center><h3>把jQuery集合中所有DOM元素恢复成一个数组。</h3></center>
+<ul>
+    <li id="foo">foo
+    <li id="bar">bar
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:得到所有li的元素数组
+        // 结果:[<li id="foo">, <li id="bar">]
+        console.log($("li").toArray());
+    });
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$contains</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.contains(c,c)</font></h3></center>
+<center><h3>jQuery.contains(container,contained)</h3></center>
+<center><h3>一个DOM节点是否包含另一个DOM节点。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // container:DOM元素作为容器，可以包含其他元素(Object类型)
+        // contained:DOM节点，可能被其他元素所包含(Object类型)
+
+        // 需求:检测一个元素是否包含另一个元素
+        // 结果:
+        var contains = jQuery.contains(document.documentElement, document.body); // true
+        console.info("contains="+contains);
+        contains = jQuery.contains(document.body, document.documentElement); // false
+        console.info("contains="+contains);
+
+    });
+</script>
