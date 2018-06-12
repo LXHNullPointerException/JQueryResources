@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>empty</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:empty()</font></h3></center>
+<center><h3>删除匹配的元素集合中所有的子节点。</h3></center>
+<p>Hello, <span>Person</span> <a href="#">and person</a></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:把所有段落的子元素（包括文本节点）删除
+        // 结果:<p></p>
+        $("p").empty();
+    });
+</script>

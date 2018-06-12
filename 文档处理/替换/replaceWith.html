@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>replaceWith</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>将所有匹配的元素替换成指定的HTML或DOM元素。</h3></center>
+<center><h3></h3></center>
+<p>Hello</p><p>cruel</p><p>World</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:把所有的段落标记替换成加粗的标记。
+        // 结果:<b>Paragraph. </b><b>Paragraph. </b><b>Paragraph. </b>
+        $("p").replaceWith("<b>Paragraph. </b>");
+
+        // 需求:用第一段替换第三段，你可以发现他是移动到目标位置来替换，而不是复制一份来替换。
+        // 结果:Paragraph. Paragraph.
+        $("b:first").replaceWith($("b:last"));
+    });
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detach</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:detach([expr])</font></h3></center>
+<center><h3>从DOM中删除所有匹配的元素。</h3></center>
+<center><h3>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。</h3></center>
+<center><h3>与remove()不同的是，所有绑定的事件、附加的数据等都会保留下来。</h3></center>
+<p>Hello</p> how are <p>you?</p>
+<p class="hello">Hello</p> how are <p>you?</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:从DOM中把所有段落删除
+        // 结果:how are
+        $("p").detach();
+
+        // 需求:从DOM中把带有hello类的段落删除
+        // 结果:how are how are
+        $("p").detach(".hello");
+    });
+</script>

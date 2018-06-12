@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>append</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:append(content|fn)</font></h3></center>
+<center><h3>向每个匹配的元素内部追加内容。</h3></center>
+<center><h3>这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似。</h3></center>
+<p>I would like to say: </p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数介绍:
+        // contentString, Element, jQuery
+        // 要追加到目标中的内容
+
+        // function(index, html) Function
+        // 返回一个HTML字符串，用于追加到每一个匹配元素的里边。
+        // 接受两个参数，index参数为对象在这个集合中的索引值，
+        // html参数为这个对象原先的html值。
+
+        // 需求:向所有段落中追加一些HTML标记。
+        // 结果:[ <p>I would like to say: <b>Hello</b></p> ]
+        $("p").append("<b>Hello</b>");
+    });
+</script>

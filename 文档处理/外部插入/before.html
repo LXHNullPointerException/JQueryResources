@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>before</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:before(content|fn)</font></h3></center>
+<center><h3>在每个匹配的元素之前插入内容。</h3></center>
+<center><h3></h3></center>
+<p>I would like to say: </p>
+<b id="foo">Hello</b>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:在所有段落之前插入一些HTML标记代码。
+        // 结果:[ <b>Hello</b><p>I would like to say: </p> ]
+        $("p").before("<b>Hello</b>");
+
+        // 需求:在所有段落之前插入一个元素。
+        // 结果:<b id="foo">Hello</b><p>I would like to say: </p>
+        $("p").before( $("#foo")[0])
+
+        // 需求:在所有段落中前插入一个jQuery对象(类似于一个DOM元素数组)。
+        $("p").before( $("b") );
+    });
+</script>

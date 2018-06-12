@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>insertBefore</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: insertBefore(content)</font></h3></center>
+<center><h3>把所有匹配的元素插入到另一个、指定的元素元素集合的前面。</h3></center>
+<center><h3>实际上，使用这个方法是颠倒了常规的$(A).before(B)的操作</h3></center>
+<center><h3>即不是把B插入到A前面，而是把A插入到B前面。</h3></center>
+<div id="foo">Hello</div><p>I would like to say: </p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:把所有段落插入到一个元素之前。与 $("#foo").before("p")相同。
+        // 结果:<p>I would like to say: </p><div id="foo">Hello</div>
+        $("p").insertBefore("#foo");
+    });
+</script>

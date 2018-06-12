@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wrapInner</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:wrapInner(html|ele|fn)</font></h3></center>
+<center><h3>将每一个匹配的元素的子内容(包括文本节点)用一个HTML结构包裹起来</h3></center>
+<center><h3>这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包装元素。</h3></center>
+<p>Java</p>
+<p>C++</p>
+<div class="container">
+    <div class="inner">Hello</div>
+    <div class="inner">Goodbye</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:把所有段落内的每个子内容加粗
+        // 结果:
+        // $("p").wrapInner("<b></b>");
+
+        // 需求:把所有段落内的每个子内容加粗
+        $("p").wrapInner(document.createElement("b"));
+
+        // 需求:用原先div的内容作为新div的class，并将每一个元素包裹起来
+        $('.inner').wrapInner(function() {
+            return '<div class="' + $(this).text() + '" />';
+        });
+    });
+</script>
