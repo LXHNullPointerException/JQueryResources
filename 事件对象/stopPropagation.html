@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stopPropagation</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:eve.stopPropagation()</font></h3></center>
+<center><h3>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。</h3></center>
+<center><h3>注意，这不会阻止同一个元素上的其它事件处理函数的运行。</h3></center>
+<center><h3>这个方法对 trigger() 来自定义的事件同样有效。</h3></center>
+<center><h3>我们可以用 event.isPropagationStopped() 来确定这个方法是否(在那个事件对象上)调用过了。</h3></center>
+<p>JavaScript</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:灭掉click事件的冒泡。
+        // 结果:
+        $("p").click(function(event){
+            event.stopPropagation();    // do something
+        });
+    });
+</script>

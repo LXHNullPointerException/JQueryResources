@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isPropagationStopped</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:eve.isPropagationStopped()</font></h3></center>
+<center><h3>根据事件对象中是否调用过 event.stopPropagation() 方法来返回一个布尔值。</h3></center>
+<center><h3></h3></center>
+<button>click me</button>
+<div id="stop-log"></div>
+</body>
+</html>
+<script type="text/javascript">
+    function propStopped(e) {
+        var msg = "";
+        if ( e.isPropagationStopped() ) {
+            msg =  "called";
+        } else {
+            msg = "not called";
+        }
+        $("#stop-log").append( "<div>" + msg + "</div>" );
+    }
+    $(function () {
+        // 需求:检测 event.stopPropagation() 是否被调用过。
+        // 结果:
+        $("button").click(function(event) {
+            propStopped(event);
+            event.stopPropagation();
+            propStopped(event);
+        });
+    });
+</script>

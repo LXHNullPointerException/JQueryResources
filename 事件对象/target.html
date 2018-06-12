@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>target</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:</font></h3></center>
+<center><h3>最初触发事件的DOM元素。</h3></center>
+<center><h3>经常用于事件冒泡时处理事件委托。</h3></center>
+<center><h3>这是注册事件时的对象，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。</h3></center>
+<div id="log"></div>
+<div>
+    <p>
+        <strong><span>click</span></strong>
+    </p>
+</div>
+<ul>
+    <li>item 1
+        <ul>
+            <li>sub item 1-a</li>
+            <li>sub item 1-b</li>
+        </ul>
+    </li>
+    <li>item 2
+        <ul>
+            <li>sub item 2-a</li>
+            <li>sub item 2-b</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    function handler(event) {
+        var $target = $(event.target);
+        if( $target.is("li") ) {
+            $target.children().toggle();
+        }
+    }
+
+    $(function () {
+        // 需求:显示点击元素的标签名。
+        // 结果:
+        $("body").click(function (event) {
+            $("#log").html("clicked: 事件发生所在的对象" + event.target+"事件发生所在对象的标签的名字:"+event.target.nodeName);
+        });
+
+        // 需求:实现一个简单的事件委托：
+        // 给无序列表增加一个点击事件处理函数，然后它的子元素li都隐藏起来。
+        // 当点击这个ul其中一个子元素li的时候，来回切换显示（参见 toggle()）li的子元素。
+        $("ul").click(handler).find("ul").hide();
+    });
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>relatedTarget</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:eve.relatedTarget</font></h3></center>
+<center><h3>在事件中涉及的其它任何DOM元素。</h3></center>
+<center><h3>对于 mouseout 事件，它指向被进入的元素；对于 mousein 事件，它指向被离开的元素。</h3></center>
+<a href="http://www.baidu.com">百度</a>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:
+        // 结果:
+        $("a").mouseout(function(event) {
+            alert(event.relatedTarget.nodeName); // "DIV"
+        });
+    });
+</script>

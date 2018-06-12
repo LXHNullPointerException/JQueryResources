@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stopImmediatePropagation</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:event.stopImmediatePropagation()</font></h3></center>
+<center><h3>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</h3></center>
+<center><h3>如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其它事件处理函数继续执行，我们可以使用event.stopPropagation() 来代替。</h3></center>
+<center><h3>除了阻止元素上其它的事件处理函数的执行，这个方法还会通过在内部调用 event.stopPropagation() 来停止事件冒泡。</h3></center>
+<center><h3>使用 event.isImmediatePropagationStopped() 来确定这个方法是否(在那个事件对象上)调用过了。</h3></center>
+<p>paragraph</p>
+<div>division</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:
+        // 结果:
+        $("p").click(function (event) {
+            event.stopImmediatePropagation();
+        });
+        $("p").click(function (event) {
+            // This function won't be executed
+            $(this).css("background-color", "#f00");
+        });
+        $("div").click(function (event) {
+            // This function will be executed
+            $(this).css("background-color", "#f00");
+        });
+    });
+</script>
