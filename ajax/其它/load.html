@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>load</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: load(url,[data],[callback])</font></h3></center>
+<center><h3>载入远程 HTML 文件代码并插入至 DOM 中。</h3></center>
+<center><h3>默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。</h3></center>
+<center><h3>jQuery 1.2 中，可以指定选择符，来筛选载入的 HTML 文档，DOM 中将仅插入筛选出的 HTML 代码。</h3></center>
+<b>jQuery Links:</b>
+<ul id="links"></ul>
+<p id="feeds"></p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:加载文章侧边栏导航部分至一个无序列表。
+        // 结果:
+        $("#links").load("/Main_Page #p-Getting-Started li");
+
+        // 需求:加载 feeds.html 文件内容。
+        $("#feeds").load("serialize.html");
+
+        // 需求:同上，但是以 POST 形式发送附加参数并在成功时显示信息。
+        $("#feeds").load("feeds.php", {limit: 25}, function () {
+            alert("The last 25 entries in the feed have been loaded");
+        });
+    });
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>serializearray</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: serializearray()</font></h3></center>
+<center><h3>序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据。</h3></center>
+<center><h3>'''注意'''，此方法返回的是JSON对象而非JSON字符串。需要使用插件或者第三方库进行字符串化操作。</h3></center>
+<center><h3></h3></center>
+<center><h3></h3></center>
+<p id="results"><b>Results:</b> </p>
+<form>
+    <select name="single">
+        <option>Single</option>
+        <option>Single2</option>
+    </select>
+    <select name="multiple" multiple="multiple">
+        <option selected="selected">Multiple</option>
+        <option>Multiple2</option>
+        <option selected="selected">Multiple3</option>
+    </select><br/>
+    <input type="checkbox" name="check" value="check1"/> check1
+    <input type="checkbox" name="check" value="check2" checked="checked"/> check2
+    <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+    <input type="radio" name="radio" value="radio2"/> radio2
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:取得表单内容并插入到网页中。
+        // 结果:
+        var fields = $("select, :radio").serializeArray();
+        jQuery.each( fields, function(i, field){
+            $("#results").append(field.value + " ");
+        });
+    });
+</script>

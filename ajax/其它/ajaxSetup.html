@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajaxSetup</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.ajaxSetup([options])</font></h3></center>
+<center><h3>设置全局 AJAX 默认选项。</h3></center>
+<center><h3>参数见 '$.ajax' 说明。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:设置 AJAX 请求默认地址为 "/xmlhttp/"，禁止触发全局 AJAX 事件，
+        // 用 POST 代替默认 GET 方法。
+        // 其后的 AJAX 请求不再设置任何选项参数。
+        // 结果:
+        var myData = $.ajaxSetup({
+            url: "/xmlhttp/",
+            global: false,
+            type: "POST"
+        });
+
+        $.ajax({data: myData});
+    });
+</script>
