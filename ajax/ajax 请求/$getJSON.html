@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$getJSON</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.getJSON(url,[data],[fn])</font></h3></center>
+<center><h3>jQuery.getJSON(url, [data], [callback])</h3></center>
+<center><h3>通过 HTTP GET 请求载入 JSON 数据</h3></center>
+<center><h3>在 jQuery 1.2 中，您可以通过使用JSONP形式的回调函数来加载其他网域的JSON数据，如 "myurl?callback=?"。jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。 </h3>
+</center>
+<center><h3>注意：此行以后的代码将在这个回调函数执行前执行。</h3></center>
+<div id="images"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数解析
+        // 类型为:String类型
+        // url:发送请求地址。
+
+        // 类型1:Map {key1:value1,key2:value2}
+        // 类型2:url键值对 key1=valu1&key2=value2
+        // data:待发送 Key/value 参数。
+
+        // 类型为Function
+        // callback:载入成功时回调函数。
+        // 需求:从 Flickr JSONP API 载入 4 张最新的关于猫的图片。
+        // url:http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?
+        // 结果:
+        var url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?';
+        $.getJSON(url, function (data) {
+            data.items.each(function (index, dom) {
+                $("#images").append($("<img/>").attr("src", item.media.m));
+                if (3 == index) {
+                    return false;
+                }
+            });
+        });
+
+        // 需求:从 test.js 载入 JSON 数据并显示 JSON 数据中一个 name 字段数据。
+        $.getJSON("test.js", function (json) {
+            alert("JSON Data: " + json.users[3].name);
+        });
+
+        // 从 test.js 载入 JSON 数据，附加参数，显示 JSON 数据中一个 name 字段数据。
+        $.getJSON("test.js", {name: "John", time: "2pm"}, function (json) {
+            alert("JSON Data: " + json.users[3].name);
+        });
+    });
+</script>

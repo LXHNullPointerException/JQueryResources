@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$ajax</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.ajax(url,[settings])</font></h3></center>
+<center><h3>通过 HTTP 请求加载远程数据。</h3></center>
+<center><h3>大多数情况下你无需直接操作该函数，除非你需要操作不常用的选项，以获得更多的灵活性。</h3></center>
+<center><h3>jQuery 底层 AJAX 实现。简单易用的高层实现见 $.get, $.post 等。$.ajax() 返回其创建的 XMLHttpRequest 对象。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:加载并执行一个 JS 文件。
+        // 结果:
+        $.ajax({
+            type: "GET",
+            url: "test.js",
+            dataType: "script"
+        });
+
+        // 需求:保存数据到服务器，成功时显示信息。
+        $.ajax({
+            type: "POST",
+            url: "some.php",
+            data: "name=John&location=Boston",
+            success: function(msg){
+                alert( "Data Saved: " + msg );
+            }
+        });
+
+        // 需求:装入一个 HTML 网页最新版本。
+        $.ajax({
+            url: "test.html",
+            cache: false,
+            success: function(html){
+                $("#results").append(html);
+            }
+        });
+
+        // 需求:同步加载数据。发送请求时锁住浏览器。需要锁定用户交互操作时使用同步方式。
+        var html = $.ajax({
+            url: "some.php",
+            async: false
+        }).responseText;
+
+        // 需求:发送 XML 数据至服务器。设置 processData 选项为 false，防止自动转换数据格式。
+        // var xmlDocument = [create xml document];
+        // $.ajax({
+        //     url: "page.php",
+        //     processData: false,
+        //     data: xmlDocument,
+        //     success: handleResponse
+        // });
+    });
+</script>

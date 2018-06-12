@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$get</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.get(url,[data],[fn],[type])</font></h3></center>
+<center><h3>通过远程 HTTP GET 请求载入信息。</h3></center>
+<center><h3>请求成功时可调用回调函数。</h3></center>
+<center><h3>如果需要在出错时执行函数，请使用 $.ajax。</h3></center>
+<center><h3>jQuery.get(url, [data], [callback], [type])</h3></center>
+<center><h3>jQuery 1.12 中 jQuery.post 和 jQuery.get 支持对象参数，这样一来好处还比较多</h3></center>
+<center><h3>比如设置回调函数的context，或者跨域 post 时可以withCredential: true。</h3></center>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 类型为String
+        // url:请求的URL地址
+
+        // 类型为Map:{key1:value1,key2:value3...},或者key1=value1&key2=value2
+        // data:待发送 Key/value 参数。
+
+        // 类型为Function
+        // callback:载入成功时回调函数。
+
+        // 类型为String
+        // type:返回内容格式，xml, html, script, json, text, _default。
+
+        // 需求:请求 test.php 网页，忽略返回值。
+        // 结果:404 Not Found
+        // url:http://localhost:63342/JQueryResources/ajax/ajax%20%E8%AF%B7%E6%B1%82/$get.html?_ijt=k4ni3jr8lc8vqn4pqk23f45pg8
+        // param:_ijt: k4ni3jr8lc8vqn4pqk23f45pg8
+        var url = "test.php";
+        var params = "username=zhangsan&password=zhangsan";
+        var paramsMap = {"username": "zhangsan", "password": "zhangsan"};
+        $.get(url);
+
+        // 需求:请求 test.php 网页，传送2个参数，忽略返回值。
+        // url:http://localhost:63342/JQueryResources/ajax/ajax%20%E8%AF%B7%E6%B1%82/test.php?username=zhangsan&password=zhangsan
+        // params:username=zhangsan&password=zhangsan
+        $.get(url, params);
+
+        // 需求:请求 test.php 网页，传送2个参数，忽略返回值。
+        // url:http://localhost:63342/JQueryResources/ajax/ajax%20%E8%AF%B7%E6%B1%82/test.php?username=zhangsan&password=zhangsan
+        // params:username=zhangsan&password=zhangsan
+        // 当key为字符串的时候,不加引号也是可以的
+        // paramsMap = {username:"zhangsan",password:"zhangsan"};
+        // 为字符串的时候,使用单引号也是可以的
+        // paramsMap = {username:'zhangsan',password:'zhangsan'};
+        // paramsMap = {'username':'zhangsan','password':'zhangsan'};
+        // zhangsan is not defined
+        // JSON字符串中的值如果是字符串一定要加引号
+        // paramsMap = {username:zhangsan,password:zhangsan};
+        paramsMap = {username: 'zhangsan', password: "zhangsan"};
+        $.get(url, paramsMap);
+
+        // 需求:显示 test.php 返回值(HTML 或 XML，取决于返回值)。
+        // url:http://localhost:63342/JQueryResources/ajax/ajax%20%E8%AF%B7%E6%B1%82/test.php
+        $.get(url, function (data) {
+            console.log("return data is " + data);
+        });
+
+        // 需求:显示 test.cgi 返回值(HTML 或 XML，取决于返回值)，添加一组请求参数。
+        // url:http://localhost:63342/JQueryResources/ajax/ajax%20%E8%AF%B7%E6%B1%82/test.php?name=John&time=2pm
+        // params:name=John&time=2pm
+        $.get(url, {"name": "John", "time": "2pm"}, function (data) {
+            console.log("return data is " + data);
+        })
+
+        // 需求:jQuery 1.12 中 jQuery.get()支持对象参数，具体的参数可以参考 $.ajax()：
+        // url:http://localhost:63342/example
+        // 404 Not Found
+        jQuery.get({
+            url: '/example'
+        });
+        // 如果请求的url也不是使用引号呢?
+        // 这样是不可以的
+        // jQuery.get({
+        //     url: /example
+        // });
+
+    });
+</script>

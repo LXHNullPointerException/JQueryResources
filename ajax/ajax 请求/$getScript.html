@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$getScript</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:$.getScript(url,[callback])</font></h3></center>
+<center><h3>通过 HTTP GET 请求载入并执行一个 JavaScript 文件。</h3></center>
+<center><h3>jQuery 1.2 版本之前，getScript 只能调用同域 JS 文件。 1.2中，您可以跨域调用 JavaScript 文件。</h3></center>
+<button id="go">» Run</button>
+<div class="block"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 类型为:String
+        // url:待载入 JS 文件地址。
+        // 类型为:Function
+        // callback:成功载入后回调函数。
+
+        // 需求:载入jQuery 官方颜色动画插件
+        // 结果:
+
+        var url = "http://dev.jquery.com/view/trunk/plugins/color/jquery.color.js";
+        jQuery.getScript(url, function () {
+            $("#go").click(function () {
+                $(".block").animate({backgroundColor: 'pink'}, 1000)
+                    .animate({backgroundColor: 'blue'}, 1000);
+            });
+        });
+
+        // 需求:加载并执行 test.js。
+        // $.getScript("test.js");
+
+        // 需求:加载并执行 test.js ，成功后显示信息。
+        $.getScript("test.js", function () {
+            alert("Script loaded and executed.");
+        });
+    });
+</script>
