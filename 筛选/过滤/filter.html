@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:filter(expr|obj|ele|fn)</font></h3></center>
+<center><h3>筛选出与指定表达式匹配的元素集合。</h3></center>
+<center><h3>这个方法用于缩小匹配的范围。用逗号分隔多个表达式</h3></center>
+<p>Hello</p>
+<p>Hello Again</p>
+<p class="selected">And Again</p>
+<p><ol><li>Hello</li></ol></p><p>How are you?</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // expr String
+        // 字符串值，包含供匹配当前元素集合的选择器表达式。
+        // jQuery object object
+        // 现有的jQuery对象，以匹配当前的元素。
+        // element Expression
+        // 一个用于匹配元素的DOM元素。
+        // function(index) Function
+        // 一个函数用来作为测试元素的集合。
+        // 它接受一个参数index，这是元素在jQuery集合的索引。
+        // 在函数， this指的是当前的DOM元素。
+
+        // 参数selector描述:保留带有selected类的元素
+        // 结果:[ <p class="selected">And Again</p> ]
+        var selected = $("p").filter(".selected");
+        console.log("selected=" + selected);
+
+        //参数selector描述: 保留第一个以及带有selected类的元素
+        // 结果:[ <p>Hello</p>, <p class="selected">And Again</p> ]
+        var firstSelected = $("p").filter(".selected,:first");
+        console.log("firstSelected=" + firstSelected);
+
+        // 回调函数 描述: 保留子元素中不含有ol的元素。
+        // 结果:[ <p>How are you?</p> ]
+        $("p").filter(function(index) {
+            return $("ol", this).length == 0;
+        });
+    });
+</script>

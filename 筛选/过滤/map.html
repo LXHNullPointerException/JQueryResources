@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:map(callback给每个元素执行的函数)</font></h3></center>
+<center><h3>将一组元素转换成其他数组（不论是否是元素数组）</h3></center>
+<center><h3>你可以用这个函数来建立一个列表，不论是值、属性还是CSS样式，或者其他特别形式。这都可以用'$.map()'来方便的建立。</h3></center>
+<p><b>Values: </b></p>
+<form>
+    <input type="text" name="name" value="John"/>
+    <input type="text" name="password" value="password"/>
+    <input type="text" name="url" value="http://ejohn.org/"/>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:把form中的每个input元素的值建立一个列表。
+        // 结果:
+        $("p").append( $("input").map(function(){
+            return $(this).val();
+        }).get().join(", ") );
+    });
+</script>

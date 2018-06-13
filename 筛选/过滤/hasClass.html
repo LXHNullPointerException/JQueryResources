@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hasClass</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:hasClass(class)</font></h3></center>
+<center><h3>检查当前的元素是否含有某个特定的类，如果有，则返回true。</h3></center>
+<center><h3>这其实就是 is("." + class)。</h3></center>
+<div class="protected">Java</div>
+<div></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:给包含有某个类的元素进行一个动画。
+        // 结果:
+        $("div").click(function () {
+            if ($(this).hasClass("protected"))
+                $(this)
+                    .animate({left: -10})
+                    .animate({left: 10})
+                    .animate({left: -10})
+                    .animate({left: 10})
+                    .animate({left: 0});
+        });
+    });
+</script>

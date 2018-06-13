@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:css(name|pro|[,val|fn])</font></h3></center>
+<center><h3>设置或者获取匹配元素的样式属性。</h3></center>
+<center><h3></h3></center>
+<p style="color: red">JavaScript</p>
+<div>Java</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数name 描述:取得第一个段落的color样式属性的值。
+        // 结果:color:rgb(255, 0, 0)
+        var color = $("p").css("color");
+        console.log("color:"+color);
+
+        // 参数properties 描述:将所有段落的字体颜色设为红色并且背景为蓝色。
+        $("p").css({
+            "color":"red",
+            "background":"blue"
+        });
+        $("p").css({
+            color:"green",
+            background:"black"
+        });
+        $("p").css({
+            color:'black',
+            background:'white'
+        });
+        // green is not defined
+        /*
+        $("p").css({
+            color:green,
+            background:black
+        });
+        */
+
+        // 需求:值对应的字符串必须要有单引号或者双引号
+        // 参数name,value 描述:将所有段落字体设为红色
+        $("p").css("color","red");
+
+        // 需求:参数name,回调函数 描述:逐渐增加div的大小
+        $("div").click(function() {
+            $(this).css({
+                width: function(index, value) {
+                    //2:此函数返回要设置的属性值。接受两个参数，
+                    // index为元素在对象集合中的索引位置，
+                    // value是原先的属性值。
+                    return parseFloat(value) * 1.2;
+                },
+                height: function(index, value) {
+                    return parseFloat(value) * 1.2;
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>not</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则:not(expr|ele|fn)</font></h3></center>
+<center><h3>从匹配元素的集合中删除与指定表达式匹配的元素</h3></center>
+<center><h3></h3></center>
+<p>Hello</p><p id="selected">Hello Again</p>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:从p元素中删除带有 select 的ID的元素
+        // 结果:[ <p>Hello</p> ]
+        $("p").not( $("#selected")[0] );
+    });
+</script>

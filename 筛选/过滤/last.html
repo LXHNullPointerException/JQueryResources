@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>last</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: last()</font></h3></center>
+<center><h3>获取最后个元素</h3></center>
+<center><h3></h3></center>
+<ul>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 需求:获取匹配的最后个元素
+        // 结果:[ <li>list item 5</li> ]
+        var last = $('li').last();
+        console.log(last);
+    });
+</script>
