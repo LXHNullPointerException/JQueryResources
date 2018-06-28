@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$extend</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<center><h3><font color="red">使用规则: $.extend([d],tgt,obj1,[objN])</font></h3></center>
+<center><h3>用一个或多个其他对象来扩展一个对象，返回被扩展的对象。</h3></center>
+<center><h3>如果不指定target，则给jQuery命名空间本身进行扩展。这有助于插件作者为jQuery增加新方法。</h3></center>
+<center><h3>如果第一个参数设置为true，则jQuery返回一个深层次的副本，递归地复制找到的任何对象。</h3></center>
+<center><h3>否则的话，副本会与原对象共享结构。</h3></center>
+<center><h3>未定义的属性将不会被复制，然而从对象的原型继承的属性将会被复制。</h3></center>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        // 参数描述1:
+        // target,[object1],[objectN] Object,Object,Object
+        // target:一个对象，如果附加的对象被传递给这个方法将那么它将接收新的属性，
+        // 如果它是唯一的参数将扩展jQuery的命名空间。
+        // object1:待合并到第一个对象的对象。
+        // objectN:待合并到第一个对象的对象。
+        // 参数描述2:
+        // [deep],target,object1,[objectN]Object,Object,Object,Object
+        // deep:如果设为true，则递归合并。
+        // target:待修改对象。
+        // object1:待合并到第一个对象的对象。
+        // objectN:待合并到第一个对象的对象。
+
+        // 需求:合并 settings 和 options，修改并返回 settings。
+        // 结果:settings == { validate: true, limit: 5, name: "bar" }
+        var settings = { validate: false, limit: 5, name: "foo" };
+        var options = { validate: true, name: "bar" };
+        var extend = jQuery.extend(settings, options);
+        console.log(extend);
+
+        // 需求:合并 defaults 和 options, 不修改 defaults。
+        // 结果:settings == { validate: true, limit: 5, name: "bar" }
+        // empty == { validate: true, limit: 5, name: "bar" }
+        var empty = {};
+        var defaults = { validate: false, limit: 5, name: "foo" };
+        var options = { validate: true, name: "bar" };
+        var settings = jQuery.extend(empty, defaults, options);
+    });
+</script>
